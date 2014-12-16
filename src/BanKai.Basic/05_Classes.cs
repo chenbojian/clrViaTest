@@ -18,7 +18,7 @@ namespace BanKai.Basic
             string chosenOne = demoObject.Foo(1);
 
             // change variable value to correct one.
-            const string expected = "Foo()";
+            const string expected = "Foo(int)";
 
             chosenOne.Should().Be(expected);
         }
@@ -31,7 +31,7 @@ namespace BanKai.Basic
             string chosenOne = demoObject.Foo((object)1);
 
             // change variable value to correct one.
-            const string expected = "Foo()";
+            const string expected = "Foo(object)";
 
             chosenOne.Should().Be(expected);
         }
@@ -45,7 +45,7 @@ namespace BanKai.Basic
             string chosenOne = demoObject.Foo(argument);
 
             // change variable value to correct one.
-            const string expected = "Foo()";
+            const string expected = "Foo(int)";
 
             chosenOne.Should().Be(expected);
         }
@@ -56,9 +56,9 @@ namespace BanKai.Basic
             var demoClass = new ConstructorOverloadingDemoClass("arg");
 
             string constructorCallSequence = demoClass.ConstructorCallSequence;
-
+            
             // change variable value to correct one.
-            const string expectedSequence = "Ctor(string)";
+            const string expectedSequence = "Ctor()\r\nCtor(string)\r\n";//wtf...\r\n...
 
             constructorCallSequence.Should().Be(expectedSequence);
         }
@@ -71,7 +71,7 @@ namespace BanKai.Basic
             bool hasDefaultConstructor = demoClass.HasDefaultConstructor();
 
             // change variable value to correct one.
-            const bool expected = false;
+            const bool expected = true;
 
             hasDefaultConstructor.Should().Be(expected);
         }
@@ -84,7 +84,7 @@ namespace BanKai.Basic
             bool hasDefaultConstructor = demoClass.HasDefaultConstructor();
 
             // change variable value to correct one.
-            const bool expected = true;
+            const bool expected = false;
 
             hasDefaultConstructor.Should().Be(expected);
         }
@@ -97,8 +97,8 @@ namespace BanKai.Basic
                 // add property initialization logic here.
             };
 
-            const string expectedProperty1 = "property1.1";
-            const string expectedProperty2 = "property2.1";
+            const string expectedProperty1 = "property1";
+            const string expectedProperty2 = null;
 
             demoClass.Property1.Should().Be(expectedProperty1);
             demoClass.Property2.Should().Be(expectedProperty2);
@@ -112,7 +112,7 @@ namespace BanKai.Basic
             demoClass.Name = "My Name";
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "My Name";
 
             demoClass.Name.Should().Be(expected);
         }
@@ -125,7 +125,7 @@ namespace BanKai.Basic
             demoClass.Name = "My Name";
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "Your Name Is My Name";
 
             demoClass.Name.Should().Be(expected);
         }
@@ -138,7 +138,7 @@ namespace BanKai.Basic
             string indexerValue = demoClass[2];
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "You are accessing indexer 2";
 
             indexerValue.Should().Be(expected);
         }
@@ -151,7 +151,7 @@ namespace BanKai.Basic
             string indexerValue = demoClass["stringArgument"];
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "You are accessing indexer stringArgument";
 
             indexerValue.Should().Be(expected);
         }
@@ -164,7 +164,7 @@ namespace BanKai.Basic
             string indexerValue = demoClass[1, "Hello"];
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "You are accessing indexer with first argument 1 and second argument Hello";
 
             indexerValue.Should().Be(expected);
         }
@@ -175,7 +175,7 @@ namespace BanKai.Basic
             string staticFieldValue = StaticConstructorDemoClass.StaticField;
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "You are so cute!";
 
             staticFieldValue.Should().Be(expected);
         }
@@ -190,7 +190,7 @@ namespace BanKai.Basic
             }
 
             // please change variable value to correct one.
-            const bool expected = default(bool);
+            const bool expected = true;
 
             disposable.IsDisposed.Should().Be(expected);
         }
@@ -207,7 +207,7 @@ namespace BanKai.Basic
             string name = demoClass.ToString();
 
             // please change variable value to correct one.
-            const string expected = "";
+            const string expected = "Mr. Hall";
 
             name.Should().Be(expected);
         }

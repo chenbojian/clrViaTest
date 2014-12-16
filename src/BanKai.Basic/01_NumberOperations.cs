@@ -14,7 +14,7 @@ namespace BanKai.Basic
         public void should_get_minimum_value_of_a_number_type()
         {
             // change "default(sbyte)" to correct value. You should not explicitly write -128.
-            sbyte minimum = default(sbyte);
+            sbyte minimum = sbyte.MinValue;
 
             minimum.Should().Be(-128);
         }
@@ -23,7 +23,7 @@ namespace BanKai.Basic
         public void should_get_maximum_value_of_a_number_type()
         {
             // change "default(int)" to correct value. You should not explicitly write 2147483647.
-            int maximum = default(int);
+            int maximum = int.MaxValue;
 
             maximum.Should().Be(2147483647);
         }
@@ -32,7 +32,7 @@ namespace BanKai.Basic
         public void should_get_correct_type_for_floating_point_number_without_literal()
         {
             // change "typeof(string)" to correct type.
-            Type guessTheType = typeof (string);
+            Type guessTheType = typeof (double);
 
             1.0.GetType().Should().Be(guessTheType);
             1E3.GetType().Should().Be(guessTheType);
@@ -42,7 +42,7 @@ namespace BanKai.Basic
         public void should_get_correct_type_for_integer_without_literal()
         {
             // change "typeof(string)" to correct type.
-            Type guessTheType = typeof (string);
+            Type guessTheType = typeof (int);
 
             1.GetType().Should().Be(guessTheType);
             0x123.GetType().Should().Be(guessTheType);
@@ -52,8 +52,8 @@ namespace BanKai.Basic
         public void should_get_correct_type_for_M_literal()
         {
             // change "typeof(string)" to correct type.
-            Type guessTheType = typeof (string);
-
+            Type guessTheType = typeof (decimal);
+            
             1M.GetType().Should().Be(guessTheType);
         }
 
@@ -61,7 +61,7 @@ namespace BanKai.Basic
         public void should_get_correct_type_for_L_literal()
         {
             // change "typeof(string)" to correct type.
-            Type guessTheType = typeof (string);
+            Type guessTheType = typeof (long);
 
             5L.GetType().Should().Be(guessTheType);
         }
@@ -70,7 +70,7 @@ namespace BanKai.Basic
         public void should_get_correct_type_for_F_literal()
         {
             // change "typeof(string)" to correct type.
-            Type guessTheType = typeof (string);
+            Type guessTheType = typeof (float);
 
             5F.GetType().Should().Be(guessTheType);
         }
@@ -82,7 +82,7 @@ namespace BanKai.Basic
             long longNumber = originNumber;
 
             // change "default(long)" to correct value.
-            const long expectedResult = default(long);
+            const long expectedResult = 12345;
 
             longNumber.Should().Be(expectedResult);
         }
@@ -94,7 +94,7 @@ namespace BanKai.Basic
             var shortNumber = (short) originNumber;
 
             // change "default(short)" to correct value.
-            const short expectedResult = default(short);
+            const short expectedResult = 12345;
 
             shortNumber.Should().Be(expectedResult);
         }
@@ -106,7 +106,7 @@ namespace BanKai.Basic
             var byteNumber = (byte) originNumber;
 
             // change "default(byte)" to correct value.
-            const byte expectedResult = default(byte);
+            const byte expectedResult = 0x34;
 
             byteNumber.Should().Be(expectedResult);
         }
@@ -119,7 +119,7 @@ namespace BanKai.Basic
             var castedBackNumber = (int) floatingPointNumber;
 
             // change "default(int)" to correct value.
-            const int expectedResult = default (int);
+            const int expectedResult = 100000000;
 
             castedBackNumber.Should().Be(expectedResult);
         }
@@ -132,7 +132,7 @@ namespace BanKai.Basic
             var castedBackNumber = (int)decimalNumber;
 
             // change "default(int)" to correct value.
-            const int expectedResult = default(int);
+            const int expectedResult = 100000001;
 
             castedBackNumber.Should().Be(expectedResult);
         }
@@ -144,7 +144,7 @@ namespace BanKai.Basic
             int suffixIncrementalReturnValue = numberToIncrement++;
 
             // change "default(int)" to correct value.
-            const int expectedResult = default (int);
+            const int expectedResult = 1;
 
             suffixIncrementalReturnValue.Should().Be(expectedResult);
         }
@@ -156,7 +156,7 @@ namespace BanKai.Basic
             int prefixIncrementalReturnValue = ++numberToIncrement;
 
             // change "default(int)" to correct value.
-            const int expectedResult = default(int);
+            const int expectedResult = 2;
 
             prefixIncrementalReturnValue.Should().Be(expectedResult);
         }
@@ -168,7 +168,7 @@ namespace BanKai.Basic
             int denominator = 0;
 
             // change "typeof(ArgumentException)" to correct exception type.
-            Type desiredExceptionType = typeof(ArgumentException);
+            Type desiredExceptionType = typeof(DivideByZeroException);
 
             desiredExceptionType.Should().NotBe(typeof(ArithmeticException));
             desiredExceptionType.Should().NotBe(typeof(SystemException));
@@ -183,7 +183,7 @@ namespace BanKai.Basic
             --minimumValue;
 
             // change "default(int)" to correct value.
-            const int expectedResult = default(int);
+            const int expectedResult = int.MaxValue;
 
             minimumValue.Should().Be(expectedResult);
         }
@@ -194,7 +194,7 @@ namespace BanKai.Basic
             int minimumValue = int.MinValue;
 
             // change "typeof(ArgumentException)" to correct exception type.
-            Type desiredExceptionType = typeof(ArgumentException);
+            Type desiredExceptionType = typeof(OverflowException);
             
             desiredExceptionType.Should().NotBe(typeof(ArithmeticException));
             desiredExceptionType.Should().NotBe(typeof(SystemException));
@@ -207,7 +207,7 @@ namespace BanKai.Basic
         public void should_do_complement_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = default (int);
+            const int expectedResult = -0x10;
 
             (~0xf).Should().Be(expectedResult);
         }
@@ -216,7 +216,7 @@ namespace BanKai.Basic
         public void should_do_and_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = default(int);
+            const int expectedResult = 0x30;
 
             (0xf0 & 0x33).Should().Be(expectedResult);
         }
@@ -225,7 +225,7 @@ namespace BanKai.Basic
         public void should_do_or_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = default(int);
+            const int expectedResult = 0xf3;
 
             (0xf0 | 0x33).Should().Be(expectedResult);
         }
@@ -234,7 +234,7 @@ namespace BanKai.Basic
         public void should_do_exclusive_or_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = default(int);
+            const int expectedResult = 0xf0f0;
 
             (0xff00 ^ 0x0ff0).Should().Be(expectedResult);
         }
@@ -243,7 +243,7 @@ namespace BanKai.Basic
         public void should_do_shift_left_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = default(int);
+            const int expectedResult = 0x80;
 
             (0x20 << 2).Should().Be(expectedResult);
         }
@@ -252,7 +252,7 @@ namespace BanKai.Basic
         public void should_do_shift_right_operation()
         {
             // change "default(int)" to correct value. You should use Hex representation.
-            const int expectedResult = default(int);
+            const int expectedResult = 0x10;
 
             (0x20 >> 1).Should().Be(expectedResult);
         }
@@ -265,7 +265,7 @@ namespace BanKai.Basic
             Type arithmeticOperatorResultType = (shortNumber + anotherShortNumber).GetType();
 
             // change "typeof(short)" to correct type.
-            Type expectedResult = typeof(short);
+            Type expectedResult = typeof(int);
 
             arithmeticOperatorResultType.Should().Be(expectedResult);
         }
@@ -277,7 +277,7 @@ namespace BanKai.Basic
             const double denominator = 0.0;
 
             // change "default(double)" to correct value.
-            const double expectedResult = default(double);
+            const double expectedResult = double.PositiveInfinity;
 
             (numerator / denominator).Should().Be(expectedResult);
         }
@@ -288,7 +288,7 @@ namespace BanKai.Basic
             const double numerator = 0;
             const double denominator = 0;
 
-            const double expectedResult = default(double);
+            const double expectedResult = double.NaN;
 
             (numerator / denominator).Should().Be(expectedResult);
         }

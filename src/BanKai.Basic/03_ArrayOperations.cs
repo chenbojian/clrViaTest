@@ -14,18 +14,18 @@ namespace BanKai.Basic
             char elementAtIndex2 = array[2];
 
             // change "default(char)" to correct value.
-            const char expectedResult = default (char);
-
+            const char expectedResult = 'i';
+            
             elementAtIndex2.Should().Be(expectedResult);
         }
-
+        
         [Fact]
         public void should_throw_if_index_is_out_of_range()
         {
             var array = new[] { 'a', 'e', 'i', 'o', 'u' };
 
             // change "typeof(FormatException)" to correct value.
-            Type expectedExceptionType = typeof(FormatException);
+            Type expectedExceptionType = typeof(IndexOutOfRangeException);
             
             expectedExceptionType.Should().NotBe(typeof(ArgumentException));
             expectedExceptionType.Should().NotBe(typeof(SystemException));
@@ -40,7 +40,7 @@ namespace BanKai.Basic
             int indexOfCharacterO = Array.IndexOf(array, 'o');
 
             // change "default(char)" to correct value.
-            const int expectedResult = default(char);
+            const int expectedResult = 3;
 
             indexOfCharacterO.Should().Be(expectedResult);
         }
@@ -52,8 +52,8 @@ namespace BanKai.Basic
             var arrayWithRefType = new string[10];
 
             // change the variable values in the following 2 lines to correct value.
-            const int intAtPostion3 = 1;
-            const string stringAtPosition3 = "";
+            const int intAtPostion3 = default(int);
+            const string stringAtPosition3 = null;
 
             arrayWithValueType[3].Should().Be(intAtPostion3);
             arrayWithRefType[3].Should().Be(stringAtPosition3);
@@ -68,7 +68,7 @@ namespace BanKai.Basic
             array[0].Value = 5;
 
             // change the variable value to correct one.
-            const int expectedResult = 1;
+            const int expectedResult = 5;
 
             cloned[0].Value.Should().Be(expectedResult);
         }
