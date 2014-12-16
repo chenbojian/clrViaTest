@@ -37,7 +37,7 @@
 
         public string Foo(MethodOverloadDerivedClass baseClassObject)
         {
-            return "Foo(MethodOverloadBaseClass)";
+            return "Foo(MethodOverloadDerivedClass)";
         }
     }
 }

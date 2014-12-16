@@ -18,9 +18,9 @@ namespace BanKai.Basic
             var valueTypeInstance = 2;
 
             // change the variable values for the following 3 lines to fix the test.
-            const bool isStringInstanceObject = false;
-            const bool isAnnonymousInstanceObject = false;
-            const bool isValueTypeInstanceObject = false;
+            const bool isStringInstanceObject = true;
+            const bool isAnnonymousInstanceObject = true;
+            const bool isValueTypeInstanceObject = true;
 
             stringInstance.GetType().IsSubclassOf(typeof(object)).Should().Be(isStringInstanceObject);
             annonymousInstance.GetType().IsSubclassOf(typeof(object)).Should().Be(isAnnonymousInstanceObject);
@@ -37,9 +37,9 @@ namespace BanKai.Basic
             object itemAtPosition2 = objectList[2];
 
             // change the variable values for the following 3 lines to fix the test.
-            Type expectedTypeForItemAtPosition0 = typeof(object);
-            Type expectedTypeForItemAtPosition1 = typeof(object);
-            Type expectedTypeForItemAtPosition2 = typeof(object);
+            Type expectedTypeForItemAtPosition0 = typeof(string);
+            Type expectedTypeForItemAtPosition1 = typeof(int);
+            Type expectedTypeForItemAtPosition2 = typeof(RefTypeClass);
 
             itemAtPosition0.GetType().Should().Be(expectedTypeForItemAtPosition0);
             itemAtPosition1.GetType().Should().Be(expectedTypeForItemAtPosition1);
@@ -54,9 +54,9 @@ namespace BanKai.Basic
             var customValueTypeObject = new ValueTypeDemoClass();
 
             // change the variable values for the following 3 lines to fix the test.
-            const bool isIntObjectValueType = false;
-            const bool isDateTimeObjectValueType = false;
-            const bool isCustomValueTypeObjectValueType = false;
+            const bool isIntObjectValueType = true;
+            const bool isDateTimeObjectValueType = true;
+            const bool isCustomValueTypeObjectValueType = true;
 
             intObject.GetType()
                 .IsSubclassOf(typeof(ValueType)).Should().Be(isIntObjectValueType);
@@ -72,7 +72,7 @@ namespace BanKai.Basic
             var customValueTypeObject = new ValueTypeDemoClass();
 
             // change the variable value to fix the test.
-            const bool isValueTypeSealed = false;
+            const bool isValueTypeSealed = true;
 
             customValueTypeObject.GetType().IsSealed.Should().Be(isValueTypeSealed);
         }
@@ -94,7 +94,7 @@ namespace BanKai.Basic
             }
 
             // change the variable value to fix the test.
-            const bool expectedIsSameReference = true;
+            const bool expectedIsSameReference = false;
 
             isSameReference.Should().Be(expectedIsSameReference);
         }
@@ -106,9 +106,9 @@ namespace BanKai.Basic
             var boxed = (object) intObject;
 
             // change the variable values for the following 3 lines to fix the test.
-            Type expectedType = typeof(object);
-            const bool isBoxedTypeSealed = false;
-            const bool isValueType = false;
+            Type expectedType = typeof(int);
+            const bool isBoxedTypeSealed = true;
+            const bool isValueType = true;
 
             boxed.GetType().Should().Be(expectedType);
             boxed.GetType().IsSealed.Should().Be(isBoxedTypeSealed);
@@ -133,9 +133,9 @@ namespace BanKai.Basic
             }
 
             // change the variable values for the following 3 lines to fix the test.
-            const bool isExceptionOccurred = true;
-            Type expectedExceptionType = typeof(Exception);
-            const long expectedLongObjectValue = 1L;
+            const bool isExceptionOccurred = false;
+            Type expectedExceptionType = typeof(InvalidCastException);
+            const long expectedLongObjectValue = 0L;
 
             (errorWhenCasting == null).Should().Be(isExceptionOccurred);
             errorWhenCasting.GetType().Should().Be(expectedExceptionType);
@@ -151,7 +151,7 @@ namespace BanKai.Basic
             Type type = castedToBaseClass.GetType();
 
             // change the variable value to fix the test.
-            Type expectedType = typeof(InheritMemberAccessDemoBaseClass);
+            Type expectedType = typeof(InheritMemberAccessDemoClass);
 
             type.Should().Be(expectedType);
         }
@@ -162,7 +162,7 @@ namespace BanKai.Basic
             var objectWithoutToStringOverride = new RefTypeClass(2);
 
             // change the variable value to fix the test.
-            const string expectedToStringResult = "";
+            const string expectedToStringResult = "BanKai.Basic.Common.RefTypeClass";
 
             string toStringResult = objectWithoutToStringOverride.ToString();
             toStringResult.Should().Be(expectedToStringResult);
