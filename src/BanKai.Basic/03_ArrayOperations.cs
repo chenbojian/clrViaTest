@@ -1,6 +1,5 @@
 ﻿using System;
 using BanKai.Basic.Common;
-using FluentAssertions;
 using Xunit;
 
 namespace BanKai.Basic
@@ -15,8 +14,8 @@ namespace BanKai.Basic
 
             // change "default(char)" to correct value.
             const char expectedResult = 'i';
-            
-            elementAtIndex2.Should().Be(expectedResult);
+
+            Assert.Equal(expectedResult, elementAtIndex2);
         }
         
         [Fact]
@@ -27,9 +26,10 @@ namespace BanKai.Basic
             // change "typeof(FormatException)" to correct value.
             Type expectedExceptionType = typeof(IndexOutOfRangeException);
             
-            expectedExceptionType.Should().NotBe(typeof(ArgumentException));
-            expectedExceptionType.Should().NotBe(typeof(SystemException));
-            expectedExceptionType.Should().NotBe(typeof(Exception));
+            Assert.NotEqual(typeof(ArgumentException), expectedExceptionType);
+            Assert.NotEqual(typeof(SystemException), expectedExceptionType);
+            Assert.NotEqual(typeof(Exception), expectedExceptionType);
+
             Assert.Throws(expectedExceptionType, () => array[99]);
         }
 
@@ -42,7 +42,7 @@ namespace BanKai.Basic
             // change "default(char)" to correct value.
             const int expectedResult = 3;
 
-            indexOfCharacterO.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, indexOfCharacterO);
         }
 
         [Fact]
@@ -55,8 +55,8 @@ namespace BanKai.Basic
             const int intAtPostion3 = default(int);
             const string stringAtPosition3 = null;
 
-            arrayWithValueType[3].Should().Be(intAtPostion3);
-            arrayWithRefType[3].Should().Be(stringAtPosition3);
+            Assert.Equal(intAtPostion3, arrayWithValueType[3]);
+            Assert.Equal(stringAtPosition3, arrayWithRefType[3]);
         }
 
         [Fact]
@@ -70,7 +70,7 @@ namespace BanKai.Basic
             // change the variable value to correct one.
             const int expectedResult = 5;
 
-            cloned[0].Value.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, cloned[0].Value);
         }
     }
 }

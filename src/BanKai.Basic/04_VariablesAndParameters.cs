@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using BanKai.Basic.Common;
-using FluentAssertions;
 using Xunit;
 
 namespace BanKai.Basic
@@ -21,8 +20,8 @@ namespace BanKai.Basic
             RefTypeClass expectedReferenceTypeValue = null;
             const int expectedValueTypeValue = 0;
 
-            defaultValueDemo.referenceTypeValue.Should().Be(expectedReferenceTypeValue);
-            defaultValueDemo.valueTypeValue.Should().Be(expectedValueTypeValue);
+            Assert.Equal(expectedReferenceTypeValue, defaultValueDemo.referenceTypeValue);
+            Assert.Equal(expectedValueTypeValue, defaultValueDemo.valueTypeValue);
         }
 
         [Fact]
@@ -34,10 +33,10 @@ namespace BanKai.Basic
             const char expectedDefaultCharResult = '\0';
             var expectedDefaultObjectResult = (object)null;
 
-            default(int).Should().Be(expectedDefaultIntResult);
-            default(bool).Should().Be(expectedDefaultBoolResult);
-            default(char).Should().Be(expectedDefaultCharResult);
-            default(object).Should().Be(expectedDefaultObjectResult);
+            Assert.Equal(expectedDefaultIntResult, default(int));
+            Assert.Equal(expectedDefaultBoolResult, default(bool));
+            Assert.Equal(expectedDefaultCharResult, default(char));
+            Assert.Equal(expectedDefaultObjectResult, default(object));
         }
 
         [Fact]
@@ -50,7 +49,7 @@ namespace BanKai.Basic
 
             FunctionPassingIntAsArgument(passingInt);
 
-            passingInt.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, passingInt);
         }
 
         [Fact]
@@ -62,7 +61,7 @@ namespace BanKai.Basic
             // change the variable value to correct one.
             RefTypeClass expectedResult = refTypeObject;
 
-            refTypeObject.Should().BeSameAs(expectedResult);
+            Assert.Same(expectedResult, refTypeObject);
         }
 
         [Fact]
@@ -75,7 +74,7 @@ namespace BanKai.Basic
 
             FunctionPassingRefIntAsArgument(ref passingInt);
 
-            passingInt.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, passingInt);
         }
 
         [Fact]
@@ -89,7 +88,8 @@ namespace BanKai.Basic
 
             // change the variable value to correct one
             object expectedResult = modifiedRefTypeObject;//interesting~
-            refTypeObject.Should().BeSameAs(expectedResult);
+
+            Assert.Same(expectedResult, refTypeObject);
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace BanKai.Basic
             // change the variable value to correct one
             const int expectedResult = 2;
 
-            passingInt.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, passingInt);
         }
 
         [Fact]
@@ -116,7 +116,7 @@ namespace BanKai.Basic
             // change the variable value to correct one
             object expectedResult = modifiedRefTypeObject;
 
-            refTypeObject.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, refTypeObject);
         }
 
         [Fact]
@@ -127,7 +127,7 @@ namespace BanKai.Basic
             // change the variable value to correct one
             const int expectedResult = 15;
 
-            sum.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, sum);
         }
 
         [Fact]
@@ -138,7 +138,7 @@ namespace BanKai.Basic
             // change the variable value to correct one
             const int expectedResult = 23;
 
-            optionalParameterValue.Should().Be(expectedResult);
+            Assert.Equal(expectedResult, optionalParameterValue);
         }
 
         private static int PassAsOptionalArgument(int value = 23)

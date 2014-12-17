@@ -1,6 +1,5 @@
 ﻿using BanKai.Basic.Common;
 using BanKai.Basic.Extensions;
-using FluentAssertions;
 using Xunit;
 
 namespace BanKai.Basic
@@ -23,8 +22,8 @@ namespace BanKai.Basic
             const string expectedDuckPosition = "You are at (2, 3)";
             const string expectedTalk = "Ga, ga, ...";
 
-            duckPosition.Should().Be(expectedDuckPosition);
-            duckTalk.Should().Be(expectedTalk);
+            Assert.Equal(expectedDuckPosition, duckPosition);
+            Assert.Equal(expectedTalk, duckTalk);
         }
 
         [Fact]
@@ -39,7 +38,7 @@ namespace BanKai.Basic
             // change the variable value to fix the test.
             const bool expectedHasWriteMethod = false;
 
-            hasWriteMethod.Should().Be(expectedHasWriteMethod);
+            Assert.Equal(expectedHasWriteMethod, hasWriteMethod);
         }
 
         [Fact]
@@ -54,7 +53,7 @@ namespace BanKai.Basic
             // change the variable value to fix the test.
             const string expectedReadResult = "Hehe";
 
-            readResult.Should().Be(expectedReadResult);
+            Assert.Equal(expectedReadResult, readResult);
         }
     }
 }

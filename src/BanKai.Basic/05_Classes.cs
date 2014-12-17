@@ -1,6 +1,5 @@
 ﻿using BanKai.Basic.Common;
 using BanKai.Basic.Extensions;
-using FluentAssertions;
 using Xunit;
 
 namespace BanKai.Basic
@@ -20,7 +19,7 @@ namespace BanKai.Basic
             // change variable value to correct one.
             const string expected = "Foo(int)";
 
-            chosenOne.Should().Be(expected);
+            Assert.Equal(expected, chosenOne);
         }
 
         [Fact]
@@ -33,7 +32,7 @@ namespace BanKai.Basic
             // change variable value to correct one.
             const string expected = "Foo(object)";
 
-            chosenOne.Should().Be(expected);
+            Assert.Equal(expected, chosenOne);
         }
 
         [Fact]
@@ -47,7 +46,7 @@ namespace BanKai.Basic
             // change variable value to correct one.
             const string expected = "Foo(int)";
 
-            chosenOne.Should().Be(expected);
+            Assert.Equal(expected, chosenOne);
         }
 
         [Fact]
@@ -60,7 +59,7 @@ namespace BanKai.Basic
             // change variable value to correct one.
             const string expectedSequence = "Ctor()\r\nCtor(string)\r\n";//wtf...\r\n...
 
-            constructorCallSequence.Should().Be(expectedSequence);
+            Assert.Equal(expectedSequence, constructorCallSequence);
         }
 
         [Fact]
@@ -73,7 +72,7 @@ namespace BanKai.Basic
             // change variable value to correct one.
             const bool expected = true;
 
-            hasDefaultConstructor.Should().Be(expected);
+            Assert.Equal(expected, hasDefaultConstructor);
         }
 
         [Fact]
@@ -86,7 +85,7 @@ namespace BanKai.Basic
             // change variable value to correct one.
             const bool expected = false;
 
-            hasDefaultConstructor.Should().Be(expected);
+            Assert.Equal(expected, hasDefaultConstructor);
         }
 
         [Fact]
@@ -100,8 +99,8 @@ namespace BanKai.Basic
             const string expectedProperty1 = "property1";
             const string expectedProperty2 = null;
 
-            demoClass.Property1.Should().Be(expectedProperty1);
-            demoClass.Property2.Should().Be(expectedProperty2);
+            Assert.Equal(expectedProperty1, demoClass.Property1);
+            Assert.Equal(expectedProperty2, demoClass.Property2);
         }
 
         [Fact]
@@ -114,7 +113,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "My Name";
 
-            demoClass.Name.Should().Be(expected);
+            Assert.Equal(expected, demoClass.Name);
         }
 
         [Fact]
@@ -127,7 +126,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "Your Name Is My Name";
 
-            demoClass.Name.Should().Be(expected);
+            Assert.Equal(expected, demoClass.Name);
         }
 
         [Fact]
@@ -140,7 +139,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "You are accessing indexer 2";
 
-            indexerValue.Should().Be(expected);
+            Assert.Equal(expected, indexerValue);
         }
 
         [Fact]
@@ -153,7 +152,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "You are accessing indexer stringArgument";
 
-            indexerValue.Should().Be(expected);
+            Assert.Equal(expected, indexerValue);
         }
 
         [Fact]
@@ -166,7 +165,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "You are accessing indexer with first argument 1 and second argument Hello";
 
-            indexerValue.Should().Be(expected);
+            Assert.Equal(expected, indexerValue);
         }
 
         [Fact]
@@ -177,7 +176,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "You are so cute!";
 
-            staticFieldValue.Should().Be(expected);
+            Assert.Equal(expected, staticFieldValue);
         }
 
         [Fact]
@@ -192,7 +191,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const bool expected = true;
 
-            disposable.IsDisposed.Should().Be(expected);
+            Assert.Equal(expected, disposable.IsDisposed);
         }
 
         [Fact]
@@ -209,7 +208,7 @@ namespace BanKai.Basic
             // please change variable value to correct one.
             const string expected = "Mr. Hall";
 
-            name.Should().Be(expected);
+            Assert.Equal(expected, name);
         }
     }
 
