@@ -35,7 +35,7 @@
             return "Foo(MethodOverloadBaseClass)";
         }
 
-        public string Foo(MethodOverloadDerivedClass baseClassObject)
+        public string Foo(MethodOverloadDerivedClass derivedClassObject)
         {
             return "Foo(MethodOverloadDerivedClass)";
         }

@@ -95,7 +95,7 @@ namespace BanKai.Basic
             var caseInsensitiveComparison = StringComparison.InvariantCultureIgnoreCase;
 
             Assert.False(originalString.Equals(inDifferentCase, caseSensitiveComparison));
-            Assert.False(originalString.Equals(inDifferentCase, caseInsensitiveComparison));
+            Assert.True(originalString.Equals(inDifferentCase, caseInsensitiveComparison));
         }
     }
 
