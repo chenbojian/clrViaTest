@@ -145,6 +145,7 @@ namespace BanKai.Basic
             Type expectedExceptionType = typeof(InvalidCastException);
             const long expectedLongObjectValue = 0L;
 
+
             Assert.Equal(isExceptionOccurred, (errorWhenCasting != null));
             Assert.Equal(expectedExceptionType, errorWhenCasting.GetType());
             Assert.Equal(expectedLongObjectValue, longObject);
