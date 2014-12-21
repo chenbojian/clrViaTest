@@ -141,9 +141,9 @@ namespace BanKai.Basic
             }
 
             // change the variable values for the following 3 lines to fix the test.
-            const bool isExceptionOccurred = false;
-            Type expectedExceptionType = typeof(Exception);
-            const long expectedLongObjectValue = 1L;
+            const bool isExceptionOccurred = true;
+            Type expectedExceptionType = typeof(InvalidCastException);
+            const long expectedLongObjectValue = 0L;
 
             Assert.Equal(isExceptionOccurred, (errorWhenCasting != null));
             Assert.Equal(expectedExceptionType, errorWhenCasting.GetType());
